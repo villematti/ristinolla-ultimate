@@ -20,6 +20,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func boardButtonPressed(sender: AnyObject) {
+        print("Button was pressed: \(sender.tag)")
+    }
 
+    @IBAction func resetGame(sender: AnyObject) {
+    }
 }
 
