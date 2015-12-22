@@ -109,11 +109,9 @@ class ViewController: UIViewController {
             
             // Check if gameBoard is full
             if self.gameBoardFull() {
-                print("Board is full!")
-            } else {
-                print("Not full yet!")
+                victoryScreen.hidden = false
+                victoryScreenLabel.text = "We have a DRAW!!!"
             }
-            
             
             // Change turn
             changeTurn()
