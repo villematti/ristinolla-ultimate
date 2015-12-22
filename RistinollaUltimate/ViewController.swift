@@ -14,8 +14,10 @@ class ViewController: UIViewController {
     var playerTurn = 1;
     var gameTokenImage = UIImage(named: "0")
     
+    // Initialize gameBoard
     var gameBoard = [Int](count: 82, repeatedValue: 0)
     
+    // Determine winning conditions
     let winningConditions =
         // Vertical
         [[1,2,3,4], [2,3,4,5], [3,4,5,6], [4,5,6,7], [5,6,7,8], [6,7,8,9],
@@ -63,7 +65,8 @@ class ViewController: UIViewController {
         [45,53,61,69], [53,61,69,77],
         [54,62,70,78]
     ]
-
+    
+    // Victoryscreen outlets
     @IBOutlet weak var victoryScreen: UIView!
     @IBOutlet weak var victoryScreenLabel: UILabel!
     
@@ -71,6 +74,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // At first, lets hide the victory screen.
         victoryScreen.hidden = true
     }
 
@@ -79,8 +83,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // When any of the gameBoard's buttons are pressed.
     @IBAction func boardButtonPressed(sender: AnyObject) {
-        print("Button was pressed: \(sender.tag)")
         
         // Check if there no value on that spot in the game board already,
         if gameBoard[sender.tag] == 0 {
