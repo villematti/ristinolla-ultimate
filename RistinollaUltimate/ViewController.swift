@@ -64,9 +64,14 @@ class ViewController: UIViewController {
         [54,62,70,78]
     ]
 
+    @IBOutlet weak var victoryScreen: UIView!
+    @IBOutlet weak var victoryScreenLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        victoryScreen.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,6 +98,12 @@ class ViewController: UIViewController {
             // Check if we have a winner
             if checkWinner() {
                 print("We have a WINNER!!!")
+                victoryScreen.hidden = false
+                if playerTurn == 1 {
+                    victoryScreenLabel.text = "Circles Win!"
+                } else {
+                    victoryScreenLabel.text = "Crosses Win!"
+                }
                 return
             }
             
@@ -129,6 +140,9 @@ class ViewController: UIViewController {
         // Set player to 1
         self.playerTurn = 1
         gameTokenImage = UIImage(named: "0")
+        
+        // Make sure voctory screen is hidden.
+        victoryScreen.hidden = true
         
     }
     
